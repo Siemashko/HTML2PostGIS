@@ -1,0 +1,98 @@
+/* * {
+    border: 1px solid #000000;
+} */
+
+.container-fluid {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.form-field {
+    padding: 0.25em;
+    text-align: right;
+}
+
+.form-submit-button {
+    padding: 1em;
+    text-align: center;
+}
+
+form {
+    padding: 1em;
+}
+
+fieldset {
+    border: 1px solid #CCC;
+    border-radius: 1em;
+}
+
+input[type=text],
+input[type=password],
+input[type=email] {
+    margin-left: 1em;
+    width: 50%;
+}
+
+input[type=text]:required,
+input[type=password]:required,
+input[type=email]:required {
+    border: 1px solid red;
+}
+
+input[type=text]:valid,
+input[type=password]:valid,
+input[type=email]:valid {
+    border: 1px solid green;
+    background-color: lightgreen;
+}
+
+input[type=text]:invalid,
+input[type=password]:invalid,
+input[type=email]:invalid {
+    background-color: pink;
+}
+
+p {
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+.col {
+    text-align: justify;    
+    margin-top: 30px;
+}
+
+@media (max-width: 1079.99px) {
+    #flex {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #left {
+        order: 2;
+    }
+    #middle {
+        order: 1;
+        text-align: center;
+    }
+    #right {
+        order: 3;
+    }
+
+    form {
+        display: inline-block;
+        width: 30em;
+    }
+    .col {
+        width: 100%;
+    }
+}
+
+@media (min-width: 1080px) {
+    .col {
+        width: 33.0%;
+        float: left;
+    }
+}
