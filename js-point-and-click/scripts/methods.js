@@ -132,10 +132,10 @@ function generatePairsFromCardMap(map) {
 }
 
 function moveCounter() {
-    moves++;
+    gameBoard.moves++;
     var counter = document.querySelector(".counter");
-    counter.innerHTML = "Moves: " + moves;
-    if (moves == 1) {
+    counter.innerHTML = "Moves: " + gameBoard.moves;
+    if (gameBoard.moves == 1) {
         startTimer();
     }
 }

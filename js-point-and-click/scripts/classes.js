@@ -8,6 +8,7 @@ class Card {
 
 class GameBoard {
     constructor(timeLeft, timeIncrement, numberOfCardsLeft, cardMap, cardPairMap, cardColorMap) {
+        this.moves = 0;
         this.score = 0;
         this.timeLeft = timeLeft;
         this.timeIncrement = timeIncrement;
