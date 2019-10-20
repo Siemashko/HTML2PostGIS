@@ -14,14 +14,15 @@
         <header><h1>Extrememory</h1></header>
         <section class="flex-container" id="menu">
             <ul>
-                <li onclick="initializeGameBoard(60,10)">10</li>
+                <li onclick="initializeGameBoard(10,10)">10</li>
                 <li onclick="initializeGameBoard(60,20)">20</li>
                 <li onclick="initializeGameBoard(60,30)">30</li>
             </ul>
         </section>
-        <section id="game-board">
-            <div class="flex-container" id="card-holder">
-            </div>
+        <section id="game-board" style="white-space: nowrap;">
+			<div style="position: inline-block;"><h1 class="counter">Moves: 0</h1></div>
+            <div class="flex-container" id="card-holder"></div>
+			<div style="position: inline-block;"><h1 class="timer"></h1></div>
         </section>
     </body>
 </html>

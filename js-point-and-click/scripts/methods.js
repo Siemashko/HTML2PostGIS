@@ -3,6 +3,7 @@ function initializeGameBoard(timeLeft, numberOfCards) {
     var cardMap = new Map();
     var cardPairMap = new Map();
     var cardColorMap = new Map();
+	
 
     document.getElementById("menu").style.display = "none";
     document.getElementById("game-board").style.display = "flex";
@@ -39,11 +40,27 @@ function initializeGameBoard(timeLeft, numberOfCards) {
     gameBoard = new GameBoard(timeLeft, 10, numberOfCards, cardMap, cardPairMap, cardColorMap);
 }
 
+
+function startTimer(){
+    interval = setInterval(function(){
+		timer = document.querySelector(".timer");
+		var seconds = gameBoard.timeLeft;
+        timer.innerHTML = "Time left: " + seconds +"secs";
+        gameBoard.timeLeft--;
+		if (Number(gameBoard.timeLeft) == 0){
+			timer.innerHTML = "Time left: " + seconds +"secs";
+			clearInterval(interval);
+			finishGame();
+	}
+    },1000);
+}
+
+
 function revealCard(event) {
     if (!isRevealCardEventListenerActive) {
         return;
     }
-
+	moveCounter();
     let cardElement = event.srcElement
     let cardHashcode = cardElement.id;
     let card = gameBoard.cardMap.get(cardHashcode);
@@ -100,6 +117,15 @@ function generatePairsFromCardMap(map) {
             result.push(array.slice(index, index + 2));
         return result;
     }, []);
+}
+
+function moveCounter(){    
+    moves++; 
+	var counter = document.querySelector(".counter");
+	counter.innerHTML = "Moves: " + moves;
+	 if(moves == 1){
+        startTimer();
+    }
 }
 
 function finishGame() {
