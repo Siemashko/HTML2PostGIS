@@ -9,6 +9,7 @@ function initializeGameBoard(timeLeft, numberOfCards) {
     document.getElementById("game-board").style.display = "flex";
 
     var cardHolder = document.getElementById("card-holder");
+    cardHolder.innerHTML = "";
     for (var i = 0; i < numberOfCards; i++) {
         var cardElement = document.createElement("div");
         var cardHashcode = randHex(16);
