@@ -105,3 +105,13 @@ function generatePairsFromCardMap(map) {
 function finishGame() {
     return;
 }
+
+function pauseGame() {
+    isRevealCardEventListenerActive = false;
+    document.getElementById("pause-window").style.display = "block";
+}
+
+function resumeGame() {
+    isRevealCardEventListenerActive = true;
+    document.getElementById("pause-window").style.display = "none";
+}
