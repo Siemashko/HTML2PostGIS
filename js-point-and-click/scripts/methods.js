@@ -115,3 +115,9 @@ function resumeGame() {
     isRevealCardEventListenerActive = true;
     document.getElementById("pause-window").style.display = "none";
 }
+
+function exitGame() {
+    gameBoard = undefined;
+    document.getElementById("menu").style.display = "flex";
+    document.getElementById("game-board").style.display = "none";
+}
