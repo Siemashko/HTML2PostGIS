@@ -16,6 +16,18 @@ html, body {
 
 .timer {
 	display: none;
+	margin-right: 15px;
+}
+
+button {
+      border-radius: 30px;
+      padding-top: 10px;
+      padding-left: 40px;
+      padding-bottom: 10px;
+   	  padding-right: 40px;
+      opacity: 0.9;
+	  width: 8%;
+	  background-color: white;
 }
 
 
@@ -30,6 +42,10 @@ header {
     flex: 0 1 12%;
 	background-color: pink;
 }
+
+#title {
+	font-size: 30px;
+}
 section {
     flex: 1 1 auto;
     background-color: pink;
@@ -39,6 +55,7 @@ section {
     margin: 0 20%;
 	background-image: url("https://images2.minutemediacdn.com/image/upload/c_fill,g_auto,h_1248,w_2220/f_auto,q_auto,w_1100/v1555291641/shape/mentalfloss/brainweights.jpg");
 	background-size: cover;
+	background-position: center;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -48,11 +65,15 @@ section {
 	margin-bottom: 20px;
 }
 
-.flex-container>div {
-    background-color: #f1f1f1;
+.card {
+	background-image: url("https://www.clipartwiki.com/clipimg/detail/10-106076_light-bulb-lightbulb-clipart-free-images-clipartix-vintage.png");
+	background-size: 100%;
+    -- background-color: #f1f1f1;
+	border-radius: 0.5vw;
     width: 8vw;
     height: 6vw;
     margin: 5px;
+	padding: 1vw 2vw 2vw;
     text-align: center;
     line-height: 4.5vw;
     font-size: 2vw;
@@ -75,14 +96,17 @@ li {
     font-size: 4vw;
     text-decoration: none;
     background-color: #f1f1f1;
+	border-radius: 0.5vw
 }
 
 /* Change the link color on hover */
 
 li:hover {
     cursor: pointer;
-    background-color: #555;
-    color: white;
+    background-color: lightyellow;
+    color: darkgray;
+	padding: 1.5vw 40% 4vw;
+	border: 0.5vw solid white;
 }
 
 .pause-window {
@@ -96,8 +120,10 @@ li:hover {
 
 .card:hover {
     cursor: pointer;
-    background-color: #555;
-    color: white;
+    background-color: lightyellow;
+    color: darkgray;
+	padding: 0.75vw 1.75vw 1.75vw;
+	border: 0.25vw solid white;
 }
 
 section#menu {

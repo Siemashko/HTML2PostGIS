@@ -9,6 +9,7 @@ function initializeGameBoard(timeLeft, numberOfCards) {
     document.getElementById("game-board").style.display = "flex";
 	document.getElementById("exit").style.display = "block";
 	document.getElementById("pause").style.display = "block";
+	document.getElementById("title").style.marginRight = "8%";
 
     var cardHolder = document.getElementById("card-holder");
     cardHolder.innerHTML = "";
@@ -25,7 +26,7 @@ function initializeGameBoard(timeLeft, numberOfCards) {
             element.addEventListener("click", revealCard);
         }
         updateCardElement(cardElement);
-        var text = document.createTextNode((i + 1) + "");
+        var text = document.createTextNode("");
         cardElement.append(text);
         cardHolder.append(cardElement);
     }
@@ -40,23 +41,25 @@ function initializeGameBoard(timeLeft, numberOfCards) {
         cardColorMap.set(pair[1], color);
     })
 
-    gameBoard = new GameBoard(timeLeft, 10, numberOfCards, cardMap, cardPairMap, cardColorMap);
+    gameBoard = new GameBoard(timeLeft, 5, numberOfCards, cardMap, cardPairMap, cardColorMap);
 }
 
 
 function startTimer() {
     interval = setInterval(function () {
         if (isTimeFlowing) {
-            timer = document.querySelector(".timer");
-			timer.style.display = "block";
-            var seconds = gameBoard.timeLeft;
-            timer.innerHTML = "Time left: " + seconds + "secs";
-            gameBoard.timeLeft--;
-            if (Number(gameBoard.timeLeft) == 0) {
-                timer.innerHTML = "Time left: " + seconds + "secs";
-                clearInterval(interval);
-                finishGame();
-            }
+			if(gameBoard) {
+				timer = document.querySelector(".timer");
+				timer.style.display = "block";
+				var seconds = gameBoard.timeLeft;
+				timer.innerHTML = "Time left: " + seconds + "secs";
+				gameBoard.timeLeft--;
+				if (Number(gameBoard.timeLeft) === -2) {
+					timer.innerHTML = "Time left: " + seconds + "secs";
+					clearInterval(interval);
+					loseGame();
+				}
+			}
         }
     }, 1000);
 }
@@ -73,8 +76,11 @@ function revealCard(event) {
 
     if (!revealedCardHashcode) {
         revealedCardHashcode = cardHashcode;
+		cardElement.style.backgroundImage = "none";
         cardElement.style.backgroundColor = gameBoard.cardColorMap.get(cardHashcode);
+		
     } else {
+		cardElement.style.backgroundImage = "none";
         cardElement.style.backgroundColor = gameBoard.cardColorMap.get(cardHashcode);
         isRevealCardEventListenerActive = false;
         setTimeout(function () {
@@ -87,19 +93,19 @@ function revealCard(event) {
                 gameBoard.timeLeft += gameBoard.timeIncrement;
                 gameBoard.numberOfCardsLeft -= 2;
             } else {
-                cardElement.style.backgroundColor = "#f1f1f1";
-                document.getElementById(revealedCardHashcode).style.backgroundColor = "#f1f1f1";
+              cardElement.removeAttribute('style');
+              document.getElementById(revealedCardHashcode).removeAttribute('style');
             }
             revealedCardHashcode = undefined;
             isRevealCardEventListenerActive = true;
+			if (Number(gameBoard.numberOfCardsLeft) === 0.0) {
+				console.log("Wygranko");
+				finishGame();
+    }
         }, 1000);
     }
 
-    console.log(cardHashcode);
-
-    if (gameBoard.numberOfCardsLeft === 0) {
-        finishGame();
-    }
+    
 }
 
 function randHex(len) {
@@ -135,7 +141,13 @@ function moveCounter() {
 }
 
 function finishGame() {
-    return;
+	alert("Wygrałeś! Twój score: " + gameBoard.score);
+	exitGame();
+}
+
+function loseGame() {
+	alert("Przegrałeś, spróbuj jeszcze raz");
+	exitGame();
 }
 
 function pauseGame() {
@@ -156,4 +168,5 @@ function exitGame() {
     document.getElementById("game-board").style.display = "none";
 	document.getElementById("exit").style.display = "none";
 	document.getElementById("pause").style.display = "none";
+	document.getElementById("title").style.marginRight = "0%";
 }
