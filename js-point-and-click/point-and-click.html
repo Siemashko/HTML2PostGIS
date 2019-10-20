@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <title></title>
+        <meta name="description" content=""/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" href="point-and-click.css"/>
+        <script src="scripts/classes.js"></script>
+        <script src="scripts/global.js"></script>
+        <script src="scripts/methods.js"></script>
+        <script src="scripts/event-listener.js"></script>
+    </head>
+    <body>
+        <header><h1>Extrememory</h1></header>
+        <section class="flex-container" id="menu">
+            <ul>
+                <li onclick="initializeGameBoard(10)">10</li>
+                <li onclick="initializeGameBoard(30)">30</li>
+                <li onclick="initializeGameBoard(40)">40</li>
+                <li onclick="initializeGameBoard(50)">50</li>
+            </ul>
+        </section>
+        <section id="game-board">
+            <div class="flex-container" id="card-holder">
+            </div>
+        </section>
+    </body>
+</html>
