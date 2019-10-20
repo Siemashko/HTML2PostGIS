@@ -164,6 +164,8 @@ function resumeGame() {
 
 function exitGame() {
     gameBoard = undefined;
+    document.getElementById("move-counter").innerHTML = "Moves: 0";
+    document.getElementById("timer").innerHTML = "";
     document.getElementById("menu").style.display = "flex";
     document.getElementById("game-board").style.display = "none";
 	document.getElementById("exit").style.display = "none";
