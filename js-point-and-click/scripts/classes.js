@@ -6,16 +6,14 @@ class Card {
     }
 }
 
-class Settings {
-    constructor(difficultyLevel, numberOfCards) {
-        this.difficultyLevel = difficultyLevel;
-        this.numberOfCards = numberOfCards;
-    }
-}
-
 class GameBoard {
-    constructor(settings) {
+    constructor(timeLeft, timeIncrement, numberOfCardsLeft, cardMap, cardPairMap, cardColorMap) {
         this.score = 0;
-        this.numberOfCardsLeft = settings.numberOfCards;
+        this.timeLeft = timeLeft;
+        this.timeIncrement = timeIncrement;
+        this.numberOfCardsLeft = numberOfCardsLeft;
+        this.cardMap = cardMap;
+        this.cardPairMap = cardPairMap;
+        this.cardColorMap = cardColorMap;
     }
 }

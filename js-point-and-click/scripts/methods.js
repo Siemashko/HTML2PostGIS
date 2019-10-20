@@ -1,9 +1,14 @@
-function initializeGameBoard(n) {
-    cardMap = new Map();
+function initializeGameBoard(timeLeft, numberOfCards) {
+    
+    var cardMap = new Map();
+    var cardPairMap = new Map();
+    var cardColorMap = new Map();
+
     document.getElementById("menu").style.display = "none";
     document.getElementById("game-board").style.display = "flex";
+
     var cardHolder = document.getElementById("card-holder");
-    for (var i = 0; i < n; i++) {
+    for (var i = 0; i < numberOfCards; i++) {
         var cardElement = document.createElement("div");
         var cardHashcode = randHex(16);
 
@@ -31,31 +36,33 @@ function initializeGameBoard(n) {
         cardColorMap.set(pair[1], color);
     })
 
-    return true;
+    gameBoard = new GameBoard(timeLeft, 10, numberOfCards, cardMap, cardPairMap, cardColorMap);
 }
 
 function revealCard(event) {
-
     if (!isRevealCardEventListenerActive) {
         return;
     }
 
     let cardElement = event.srcElement
     let cardHashcode = cardElement.id;
-    let card = cardMap.get(cardHashcode);
+    let card = gameBoard.cardMap.get(cardHashcode);
 
     if (!revealedCardHashcode) {
         revealedCardHashcode = cardHashcode;
-        cardElement.style.backgroundColor = cardColorMap.get(cardHashcode);
+        cardElement.style.backgroundColor = gameBoard.cardColorMap.get(cardHashcode);
     } else {
-        cardElement.style.backgroundColor = cardColorMap.get(cardHashcode);
+        cardElement.style.backgroundColor = gameBoard.cardColorMap.get(cardHashcode);
         isRevealCardEventListenerActive = false;
         setTimeout(function () {
-            if (cardPairMap.get(cardHashcode) === revealedCardHashcode) {
+            if (gameBoard.cardPairMap.get(cardHashcode) === revealedCardHashcode) {
                 cardElement.style.border = "1px solid black";
                 cardElement.removeEventListener("click", revealCard);
                 document.getElementById(revealedCardHashcode).removeEventListener("click", revealCard);
                 document.getElementById(revealedCardHashcode).style.border = "1px solid black";
+                gameBoard.score += gameBoard.timeLeft;
+                gameBoard.timeLeft += gameBoard.timeIncrement;
+                gameBoard.numberOfCardsLeft -= 2;
             } else {
                 cardElement.style.backgroundColor = "#f1f1f1";
                 document.getElementById(revealedCardHashcode).style.backgroundColor = "#f1f1f1";
@@ -66,6 +73,10 @@ function revealCard(event) {
     }
 
     console.log(cardHashcode);
+
+    if(gameBoard.numberOfCardsLeft === 0) {
+        finishGame();
+    }
 }
 
 function randHex(len) {
@@ -89,4 +100,8 @@ function generatePairsFromCardMap(map) {
             result.push(array.slice(index, index + 2));
         return result;
     }, []);
+}
+
+function finishGame() {
+    return;
 }
