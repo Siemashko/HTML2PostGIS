@@ -7,6 +7,8 @@ function initializeGameBoard(timeLeft, numberOfCards) {
 
     document.getElementById("menu").style.display = "none";
     document.getElementById("game-board").style.display = "flex";
+	document.getElementById("exit").style.display = "block";
+	document.getElementById("pause").style.display = "block";
 
     var cardHolder = document.getElementById("card-holder");
     cardHolder.innerHTML = "";
@@ -46,6 +48,7 @@ function startTimer() {
     interval = setInterval(function () {
         if (isTimeFlowing) {
             timer = document.querySelector(".timer");
+			timer.style.display = "block";
             var seconds = gameBoard.timeLeft;
             timer.innerHTML = "Time left: " + seconds + "secs";
             gameBoard.timeLeft--;
@@ -151,4 +154,6 @@ function exitGame() {
     gameBoard = undefined;
     document.getElementById("menu").style.display = "flex";
     document.getElementById("game-board").style.display = "none";
+	document.getElementById("exit").style.display = "none";
+	document.getElementById("pause").style.display = "none";
 }

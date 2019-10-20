@@ -2,11 +2,25 @@
     border: 1px solid black;
 } */
 
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
 html, body {
     display: flex;
     flex-flow: column;
     height: 100%;
     margin: 0;
+	background-color: pink;
+	background-size: 100%;
+	font-family: Open Sans, sans;
+}
+
+.timer {
+	display: none;
+}
+
+
+.counter {
+	position: absolute;
 }
 
 header {
@@ -14,8 +28,8 @@ header {
     height: 12%;
     text-align: center;
     flex: 0 1 12%;
+	background-color: pink;
 }
-
 section {
     flex: 1 1 auto;
     background-color: pink;
@@ -23,11 +37,15 @@ section {
 
 .flex-container {
     margin: 0 20%;
-    background-color: blue;
+	background-image: url("https://images2.minutemediacdn.com/image/upload/c_fill,g_auto,h_1248,w_2220/f_auto,q_auto,w_1100/v1555291641/shape/mentalfloss/brainweights.jpg");
+	background-size: cover;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     flex: 1 1 auto;
+	border-radius: 35px 80px 60px;
+	padding: 20px;
+	margin-bottom: 20px;
 }
 
 .flex-container>div {
@@ -112,6 +130,14 @@ section#game-board {
 }
 
 /* Modal Content/Box */
+
+button#exit {
+	display: none
+}
+
+button#pause {
+	display: none
+}
 
 .modal-content {
     background-color: #fefefe;
