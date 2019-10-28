@@ -1,0 +1,43 @@
+body, html {
+    width: 100%;
+    height: 100%;
+}
+
+div {
+    border: 0;
+    margin: 0;
+    float: left;
+}
+
+#props {
+    width: 100%;
+    height: 40%;
+    background-color: orange;
+    display: block;
+}
+
+#shade {
+    width: 50%;
+    height: 60%;
+    background-color: gray;
+    display: block;
+}
+
+#control-panel {
+    width: 50%;
+    height: 60%;
+    background-color: red;
+    color: black;
+    display: block;
+    float: right;
+}
+
+.male-celebrity {
+    border: 0.4vw solid black;
+}
+
+.male-celebrity {
+    border: 0.4vw solid black;
+    border-radius: 0.4vw;
+}
+
