@@ -46,7 +46,8 @@ public class DeliveryPackageService {
 
         final DeliveryPackage packageToUpdate = deliveryPackageRepository.getOne(updatePackageRequest.getDeliveryPackageId());
 
-        final DeliveryPackage updatedPackage = packageToUpdate.toBuilder()
+        final DeliveryPackage updatedPackage = DeliveryPackage.builder()
+                .deliveryPackageId(updatePackageRequest.getDeliveryPackageId())
                 .tags(updatePackageRequest.getNewTagSet() == null ? packageToUpdate.getTags() : updatePackageRequest.getNewTagSet())
                 .width(updatePackageRequest.getWidth() == null ? packageToUpdate.getWidth() : updatePackageRequest.getWidth())
                 .length(updatePackageRequest.getLength() == null ? packageToUpdate.getLength() : updatePackageRequest.getLength())

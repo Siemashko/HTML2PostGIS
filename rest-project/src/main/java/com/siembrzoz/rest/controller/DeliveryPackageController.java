@@ -69,6 +69,7 @@ public class DeliveryPackageController {
                 .weight(updatePackageRequestDto.getWeight())
                 .lat(updatePackageRequestDto.getLat())
                 .lng(updatePackageRequestDto.getLng())
+                .version(updatePackageRequestDto.getVersion())
                 .build();
 
         return DeliveryPackageDto.from(deliveryPackageService.updatePackage(updatePackageRequest));
