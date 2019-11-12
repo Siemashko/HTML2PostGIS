@@ -1,0 +1,60 @@
+html, body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+}
+
+header {
+    padding: 0;
+    border: 0;
+    margin: 0;
+    background-color: aqua;
+    height: 10%;
+}
+
+aside {
+    float: left;
+    border: 0;
+    margin: 0;
+    background-color: red;
+    height: 90%;
+    width: 25%;
+}
+
+section {
+    float: right;
+    border: 0;
+    margin: 0;
+    background-color: pink;
+    height: 90%;
+    width: 75%;
+}
+
+#mapid {
+    height: 50vw;
+}
+
+ul {
+    width:100%;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
+    width: 100%;
+    margin: 0;
+    padding: 1.5vw 5vw;
+    text-align: left;
+}
+
+li:hover {
+    background-color: lightgrey;
+    cursor: pointer;
+}
+
+.hidden{ 
+    display: none;
+}
+

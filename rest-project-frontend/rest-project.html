@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./rest-project.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+        crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+        integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+        crossorigin=""></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="./scripts/classes.js"></script>
+    <script src="./scripts/global.js"></script>
+    <script src="./scripts/methods.js"></script>
+    <script src="./scripts/rest-client.js"></script>
+
+</head>
+
+<body>
+    <header>
+        <h1>Elo</h1>
+    </header>
+    <aside id="search-panel">
+        <div onclick="showModal()" type="button" style="width: 100%;" class="btn btn-info btn-lg">Add new
+            package</div>
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Modal Header</h4>
+                    </div>
+                    <div class="modal-body">
+                        <label for="tags">Tags: </label>
+                        <input type="text" name="tags" id="tags">
+                        <label for="width">Width: </label>
+                        <input type="text" name="width" id="width" required>
+                        <label for="length">Length: </label>
+                        <input type="text" name="length" id="length" required>
+                        <label for="height">Height: </label>
+                        <input type="text" name="height" id="height" required>
+                        <label for="weight">Weight: </label>
+                        <input type="text" name="weight" id="weight" required>
+                        <label for="lat">Latitude: </label>
+                        <input type="text" name="lat" id="lat" required>
+                        <label for="lng">Longitude: </label>
+                        <input type="text" name="lng" id="lng" required>
+                    </div>
+                    <div class="modal-footer">
+                            <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+
+                            <button onclick="sendCreateDeliveryPackageRequest()" id="modal-submit-button" type="button" class="btn btn-default "
+                            data-dismiss="modal">Submit</button>
+                        <button onclick="sendDeleteDeliveryPackageRequest()" id="modal-delete-button" type="button" class="btn btn-danger hidden" data-dismiss="modal">Delete</button>
+                        <button onclick="sendUpdateDeliveryPackageRequest()" id="modal-update-button" type="button" class="btn btn-default hidden"
+                            data-dismiss="modal">Update</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <ul id="package-list">
+        </ul>
+
+    </aside>
+    <section id="package-panel">
+        <div id="mapid"></div>
+    </section>
+</body>
+
+</html>
