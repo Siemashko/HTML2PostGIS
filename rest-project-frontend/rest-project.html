@@ -26,10 +26,10 @@
 
 <body>
     <header>
-        <h1>Elo</h1>
+        <h1><center><b>Delivery and Logistics Managament Studio</b></center></h1>
     </header>
     <aside id="search-panel">
-        <div onclick="showModal()" type="button" style="width: 100%;" class="btn btn-info btn-lg">Add new
+        <div onclick="showModal()" type="button" id="mainBtn" class="btn btn-info btn-lg">Add new
             package</div>
         <div class="modal fade" id="myModal" role="dialog">
             <div class="modal-dialog">
@@ -38,23 +38,58 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title">Modal Header</h4>
+                        <h4 class="modal-title">Package data</h4>
                     </div>
                     <div class="modal-body">
-                        <label for="tags">Tags: </label>
+					<div class="labCont">
+                        <label for="width">
+						Width: 
+						</label>
+                        <input type="text" name="width" id="width" required></br>
+					
+					</div>
+					<div class="labCont">
+                        <label for="length">
+						<span> Length: </span>
+						</label>
+                        <input type="text" name="length" id="length" required></br>
+					
+					</div>
+					<div class="labCont">
+                        <label for="height">
+						<span>Height: </span>
+						</label>
+                        <input type="text" name="height" id="height" required></br>
+				
+					</div>
+					<div class="labCont">
+                        <label for="weight">
+						<span> Weight: </span>
+						</label>
+                        <input type="text" name="weight" id="weight" required></br>
+					
+					</div>
+					<div class="labCont">
+                        <label for="lat">
+						<span> Latitude: </span>
+						</label>
+                        <input type="text" name="lat" id="lat" required></br>
+					
+					</div>
+					<div class="labCont">
+                        <label for="lng">
+						<span>Longitude:</span>
+						</label>
+                        <input type="text" name="lng" id="lng" required></br>
+					
+					</div>
+					<div class="labCont">
+                        <label for="tags">
+						<span>Tags: </span>
+						</label>
                         <input type="text" name="tags" id="tags">
-                        <label for="width">Width: </label>
-                        <input type="text" name="width" id="width" required>
-                        <label for="length">Length: </label>
-                        <input type="text" name="length" id="length" required>
-                        <label for="height">Height: </label>
-                        <input type="text" name="height" id="height" required>
-                        <label for="weight">Weight: </label>
-                        <input type="text" name="weight" id="weight" required>
-                        <label for="lat">Latitude: </label>
-                        <input type="text" name="lat" id="lat" required>
-                        <label for="lng">Longitude: </label>
-                        <input type="text" name="lng" id="lng" required>
+					
+					</div>
                     </div>
                     <div class="modal-footer">
                             <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
@@ -69,8 +104,11 @@
 
             </div>
         </div>
+		<nav>
         <ul id="package-list">
         </ul>
+		</nav>
+		
 
     </aside>
     <section id="package-panel">
