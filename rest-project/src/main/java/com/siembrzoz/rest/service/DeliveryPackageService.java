@@ -37,6 +37,7 @@ public class DeliveryPackageService {
                 .weight(createPackageRequest.getWeight())
                 .lat(createPackageRequest.getLat())
                 .lng(createPackageRequest.getLng())
+                .status(DeliveryPackage.DeliveryPackageStatus.NEW)
                 .build();
 
         return deliveryPackageRepository.saveAndFlush(newPackage);
