@@ -1,8 +1,8 @@
 package com.siembrzoz.rest.controller;
 
-import com.siembrzoz.rest.controller.dto.CreatePackageRequestDto;
+import com.siembrzoz.rest.controller.dto.CreatePackageRequestCommand;
 import com.siembrzoz.rest.controller.dto.DeliveryPackageDto;
-import com.siembrzoz.rest.controller.dto.UpdatePackageRequestDto;
+import com.siembrzoz.rest.controller.dto.UpdatePackageRequestCommand;
 import com.siembrzoz.rest.domain.CreatePackageRequest;
 import com.siembrzoz.rest.domain.UpdatePackageRequest;
 import com.siembrzoz.rest.service.DeliveryPackageService;
@@ -42,34 +42,34 @@ public class DeliveryPackageController {
     }
 
     @PostMapping
-    public DeliveryPackageDto addPackage(@Valid @RequestBody CreatePackageRequestDto createPackageRequestDto) {
+    public DeliveryPackageDto addPackage(@Valid @RequestBody CreatePackageRequestCommand createPackageRequestCommand) {
 
         final CreatePackageRequest createPackageRequest = CreatePackageRequest.builder()
-                .tags(createPackageRequestDto.getTags())
-                .width(createPackageRequestDto.getWidth())
-                .length(createPackageRequestDto.getLength())
-                .height(createPackageRequestDto.getHeight())
-                .weight(createPackageRequestDto.getWeight())
-                .lat(createPackageRequestDto.getLat())
-                .lng(createPackageRequestDto.getLng())
+                .tags(createPackageRequestCommand.getTags())
+                .width(createPackageRequestCommand.getWidth())
+                .length(createPackageRequestCommand.getLength())
+                .height(createPackageRequestCommand.getHeight())
+                .weight(createPackageRequestCommand.getWeight())
+                .lat(createPackageRequestCommand.getLat())
+                .lng(createPackageRequestCommand.getLng())
                 .build();
 
         return DeliveryPackageDto.from(deliveryPackageService.createPackage(createPackageRequest));
     }
 
     @PutMapping
-    public DeliveryPackageDto updatePackage(@Valid @RequestBody UpdatePackageRequestDto updatePackageRequestDto) {
+    public DeliveryPackageDto updatePackage(@Valid @RequestBody UpdatePackageRequestCommand updatePackageRequestCommand) {
 
         final UpdatePackageRequest updatePackageRequest = UpdatePackageRequest.builder()
-                .deliveryPackageId(updatePackageRequestDto.getDeliveryPackageId())
-                .newTagSet(updatePackageRequestDto.getNewTags())
-                .width(updatePackageRequestDto.getWidth())
-                .length(updatePackageRequestDto.getLength())
-                .height(updatePackageRequestDto.getHeight())
-                .weight(updatePackageRequestDto.getWeight())
-                .lat(updatePackageRequestDto.getLat())
-                .lng(updatePackageRequestDto.getLng())
-                .version(updatePackageRequestDto.getVersion())
+                .deliveryPackageId(updatePackageRequestCommand.getDeliveryPackageId())
+                .newTagSet(updatePackageRequestCommand.getNewTags())
+                .width(updatePackageRequestCommand.getWidth())
+                .length(updatePackageRequestCommand.getLength())
+                .height(updatePackageRequestCommand.getHeight())
+                .weight(updatePackageRequestCommand.getWeight())
+                .lat(updatePackageRequestCommand.getLat())
+                .lng(updatePackageRequestCommand.getLng())
+                .version(updatePackageRequestCommand.getVersion())
                 .build();
 
         return DeliveryPackageDto.from(deliveryPackageService.updatePackage(updatePackageRequest));

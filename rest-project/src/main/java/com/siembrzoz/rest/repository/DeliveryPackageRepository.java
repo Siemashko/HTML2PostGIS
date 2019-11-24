@@ -6,7 +6,12 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Repository
 @Transactional(propagation = Propagation.MANDATORY)
 public interface DeliveryPackageRepository extends JpaRepository<DeliveryPackage, Long> {
+
+    List<DeliveryPackage> findAllByStatusIn(DeliveryPackage.DeliveryPackageStatus... statuses);
+
 }

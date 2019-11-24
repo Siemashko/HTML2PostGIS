@@ -45,6 +45,8 @@ public class DeliveryPackage {
 
     private Double lng;
 
+    private DeliveryPackageStatus status;
+
     @CreatedDate
     private LocalDateTime createdTime;
 
@@ -53,4 +55,8 @@ public class DeliveryPackage {
 
     @Version
     private Integer version;
+
+    public enum DeliveryPackageStatus {
+        NEW, LOCKED, DELIVERED
+    }
 }
