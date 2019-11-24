@@ -35,10 +35,14 @@ public class JobResultDto {
 
         private Long deliveryPackageId;
 
+        private Double lat;
+
+        private Double lng;
+
         private Long orderNumber;
 
         static JobResultEntryDto from(JobResult.JobResultEntry source) {
-            return new JobResultEntryDto(source.getJobResultEntryId(), source.getDeliveryPackageId(), source.getOrderNumber());
+            return new JobResultEntryDto(source.getJobResultEntryId(), source.getDeliveryPackageId(), source.getLat(), source.getLng(), source.getOrderNumber());
         }
     }
 }

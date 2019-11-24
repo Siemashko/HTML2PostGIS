@@ -35,6 +35,10 @@ public class JobResult {
 
         private Long deliveryPackageId;
 
+        private Double lat;
+
+        private Double lng;
+
         private Long orderNumber;
     }
 }

@@ -39,3 +39,18 @@ class UpdatePackageRequest {
         this.version = version;
     }
 }
+
+class Job {
+    constructor(jobId, status, vehicleCapacity, jobResult) {
+        this.jobId = jobId;
+        this.status = status;
+        this.vehicleCapacity = vehicleCapacity;
+        this.jobResult = jobResult;
+    }
+}
+
+class CreateJobRequest {
+    constructor(vehicleCapacity) {
+        this.vehicleCapacity = vehicleCapacity;
+    }
+}

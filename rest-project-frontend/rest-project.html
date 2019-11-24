@@ -7,12 +7,8 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./rest-project.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
-        integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-        crossorigin="" />
-    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
-        integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
-        crossorigin=""></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -42,43 +38,7 @@
 
 <body>
     <div id="header">
-        <nav id="nav" class="navbar fixed-top navbar-light bg-faded">
-
-            <!-- ICON -->
-            <div class="dropdown nav-button notifications-button hidden-sm-down">
-
-                <a class="btn btn-secondary dropdown-toggle" href="#" id="notifications-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i id="notificationsIcon" class="fa fa-bell-o" aria-hidden="true"></i>
-                    <span id="notificationsBadge" class="badge badge-danger"><i class="fa fa-spinner fa-pulse fa-fw" aria-hidden="true"></i></span>
-                </a>
-
-                <!-- NOTIFICATIONS -->
-                <div class="dropdown-menu notification-dropdown-menu" aria-labelledby="notifications-dropdown">
-                    <h6 class="dropdown-header">Notifications</h6>
-
-                    <!-- CHARGEMENT -->
-                    <a id="notificationsLoader" class="dropdown-item dropdown-notification" href="#">
-                        <p class="notification-solo text-center"><i id="notificationsIcon" class="fa fa-spinner fa-pulse fa-fw" aria-hidden="true"></i> Chargement des dernières notifications...</p>
-                    </a>
-
-                    <div id="notificationsContainer" class="notifications-container"></div>
-
-                    <!-- AUCUNE NOTIFICATION -->
-                    <a id="notificationAucune" class="dropdown-item dropdown-notification" href="#">
-                        <p class="notification-solo text-center">Aucune nouvelle notification</p>
-                    </a>
-
-                    <!-- TOUTES -->
-                    <a class="dropdown-item dropdown-notification-all" href="#">
-                        Voir toutes les notifications
-                    </a>
-
-                </div>
-
-            </div>
-
-        </nav>
-        <div onclick="addVehicle()" type="button" id="vhcBtn" class="btn btn-info btn-lg">Add new vehicle</div>
+        <!-- <div onclick="addVehicle()" type="button" id="vhcBtn" class="btn btn-info btn-lg">Add new vehicle</div> -->
         <div id="title">
             <h1 id=""><b>Delivery and Logistics Managament Studio</b></h1>
         </div>
@@ -86,8 +46,8 @@
     </div>
 
     <aside id="search-panel">
-        <div onclick="showModal()" type="button" id="mainBtn" class="btn btn-info btn-lg">Add new
-            package</div>
+        <div onclick="showModal()" type="button" id="mainBtn" class="btn btn-info btn-lg">Add new package
+        </div>
         <div class="modal fade" id="myModal" role="dialog">
             <div class="modal-dialog">
 
@@ -98,79 +58,111 @@
                         <h4 class="modal-title">Package data</h4>
                     </div>
                     <div class="modal-body">
-					<div class="labCont">
-                        <label for="width">
+                        <div class="labCont">
+                            <label for="width">
 						Width: 
 						</label>
-                        <input type="text" name="width" id="width" required></br>
-					
-					</div>
-					<div class="labCont">
-                        <label for="length">
+                            <input type="text" name="width" id="width" required></br>
+
+                        </div>
+                        <div class="labCont">
+                            <label for="length">
 						<span> Length: </span>
 						</label>
-                        <input type="text" name="length" id="length" required></br>
-					
-					</div>
-					<div class="labCont">
-                        <label for="height">
+                            <input type="text" name="length" id="length" required></br>
+
+                        </div>
+                        <div class="labCont">
+                            <label for="height">
 						<span>Height: </span>
 						</label>
-                        <input type="text" name="height" id="height" required></br>
-				
-					</div>
-					<div class="labCont">
-                        <label for="weight">
+                            <input type="text" name="height" id="height" required></br>
+
+                        </div>
+                        <div class="labCont">
+                            <label for="weight">
 						<span> Weight: </span>
 						</label>
-                        <input type="text" name="weight" id="weight" required></br>
-					
-					</div>
-					<div class="labCont">
-                        <label for="lat">
+                            <input type="text" name="weight" id="weight" required></br>
+
+                        </div>
+                        <div class="labCont">
+                            <label for="lat">
 						<span> Latitude: </span>
 						</label>
-                        <input type="text" name="lat" id="lat" required></br>
-					
-					</div>
-					<div class="labCont">
-                        <label for="lng">
+                            <input type="text" name="lat" id="lat" required></br>
+
+                        </div>
+                        <div class="labCont">
+                            <label for="lng">
 						<span>Longitude:</span>
 						</label>
-                        <input type="text" name="lng" id="lng" required></br>
-					
-					</div>
-					<div class="labCont">
-                        <label for="tags">
+                            <input type="text" name="lng" id="lng" required></br>
+
+                        </div>
+                        <div class="labCont">
+                            <label for="tags">
 						<span>Tags: </span>
 						</label>
-                        <input type="text" name="tags" id="tags">
-					
-					</div>
+                            <input type="text" name="tags" id="tags">
+
+                        </div>
                     </div>
                     <div class="modal-footer">
-                            <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
 
-                            <button onclick="sendCreateDeliveryPackageRequest()" id="modal-submit-button" type="button" class="btn btn-default "
-                            data-dismiss="modal">Submit</button>
+                        <button onclick="sendCreateDeliveryPackageRequest()" id="modal-submit-button" type="button" class="btn btn-default " data-dismiss="modal">Submit</button>
                         <button onclick="sendDeleteDeliveryPackageRequest()" id="modal-delete-button" type="button" class="btn btn-danger hidden" data-dismiss="modal">Delete</button>
-                        <button onclick="sendUpdateDeliveryPackageRequest()" id="modal-update-button" type="button" class="btn btn-default hidden"
-                            data-dismiss="modal">Update</button>
+                        <button onclick="sendUpdateDeliveryPackageRequest()" id="modal-update-button" type="button" class="btn btn-default hidden" data-dismiss="modal">Update</button>
                     </div>
                 </div>
 
             </div>
         </div>
-		<nav>
-        <ul id="package-list">
-        </ul>
-		</nav>
-		
-
+        <nav>
+            <ul id="package-list">
+            </ul>
+        </nav>
     </aside>
     <section id="package-panel">
         <div id="mapid"></div>
     </section>
+    <aside id="vehicle-panel">
+        <div onclick="showVehicleModal()" type="button" id="vhcBtn" class="btn btn-info btn-lg">Add new vehicle
+        </div>
+        <div class="modal fade" id="myModal2" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Vehicle data</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="labCont">
+                            <label for="capacity">
+						Capacity: 
+						</label>
+                            <input type="text" name="capacity" id="capacity" required></br>
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+                        <button onclick="sendCreateJobRequest()" id="modal-submit-button" type="button" class="btn btn-default" data-dismiss="modal">Submit</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <nav>
+            <ul id="job-list">
+            </ul>
+        </nav>
+
+
+    </aside>
 </body>
 
 </html>

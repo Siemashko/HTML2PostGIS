@@ -80,6 +80,8 @@ public class JobService {
             deliveryPackageRepository.saveAndFlush(closestDeliveryPackage);
             final JobResultEntry newEntry = JobResultEntry.builder()
                     .deliveryPackageId(closestDeliveryPackage.getDeliveryPackageId())
+                    .lat(closestDeliveryPackage.getLat())
+                    .lng(closestDeliveryPackage.getLng())
                     .orderNumber(orderNumber).build();
             jobResultEntryRepository.saveAndFlush(newEntry);
             entries.add(newEntry);
