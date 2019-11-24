@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Questrial&display=swap');
 html, body {
-    margin: 0, auto;
+    margin: 0 auto;
     height: 100%;
     width: 100%;
-	background-color: d4d4d4;
+	background-color: #d4d4d4;
 	font-family: 'Questrial', sans-serif;
 }
 
@@ -11,6 +11,14 @@ html, body {
 	width: 100%;
 	background-color: #ecdd55;
 	border: solid 1px black;
+}
+#vhcBtn{
+    float: left;
+    margin-left: 45px;
+    margin-top: 3px;
+    background-color: #ecdd55;
+    border: 1px solid;
+    border-color: black;
 }
 h1 {
 	margin-top: 20px;
@@ -24,14 +32,105 @@ nav ul{
 	min-height: 200px;
 }
 
-header {
+#header{
+    width: 100%;
+    overflow: hidden;
+    z-index: 20;
+}
+
+#title {
 	margin-header: 0;
     margin-top: 0;
-    background-color: d4d4d4;
+    margin-right: 3%;
     height: 10%;
+    max-width: 70%;
 	color: black;
+    float: right;
 	font-family: 'Questrial', sans-serif;
 
+}
+
+#nav{
+    float: left;
+    z-index: 20000;
+    position: absolute;
+}
+
+.dropdown-item.dropdown-notification:active, .dropdown-item.dropdown-notification.active {
+    color: #1d1e1f;
+    text-decoration: none;
+    background-color: #f7f7f9;
+}
+
+.dropdown-notification:hover .notification-read {
+    color: #34495E;
+}
+
+.dropdown-notification-all {
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-style: oblique;
+    background-color: #34495E;
+    color: white;
+}
+.notification-dropdown-menu {
+    width: 400px;
+    padding-bottom: 0;
+}
+.dropdown-menu {
+    width: 400px;
+}
+.dropdown-notification-all:hover {
+    background-color: #34495E;
+    color: white;
+}
+
+.notifications-container {
+    max-height: 300px;
+    overflow: auto;
+}
+
+
+.notification-img {
+    width: 48px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.notifications-body {
+    display: inline-block;
+    width: 100%;
+}
+
+.notification-texte {
+    text-align: left;
+    margin: 0;
+}
+
+.notification-read {
+    margin: 0;
+    height: 48px;
+    vertical-align: top;
+    line-height: 48px;
+    padding-left: 15px;
+    color: white;
+    float: right;
+}
+
+.notification-date {
+    text-align: left;
+    color: #2980b9;
+    margin: 0;
+}
+
+.notification-solo {
+    margin-top: 1rem;
+}
+
+.notification-unread {
+    text-decoration: none;
+    background-color: #f7f7f9;
 }
 
 aside {
@@ -81,6 +180,7 @@ label {
   width: 100px;
   text-align: right;
 }​
+
 .modal-content {
 	width: 400px;
 }
@@ -94,6 +194,9 @@ li:hover {
     cursor: pointer;
 }
 
+.leaflet-container{
+    z-index: 10;
+}
 .hidden{ 
     display: none;
 }
