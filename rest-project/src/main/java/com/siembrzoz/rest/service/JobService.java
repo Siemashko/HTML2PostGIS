@@ -32,6 +32,10 @@ public class JobService {
         return jobRepository.findAllByStatusIn(statuses);
     }
 
+    public Job findJobById(Long id) {
+        return jobRepository.getOne(id);
+    }
+
     public Job createNewJob(CreateJobRequestCommand createJobRequestCommand) {
         final Job newJob = Job.builder().status(Job.JobStatus.NEW)
                 .vehicleCapacity(createJobRequestCommand.getVehicleCapacity()).build();
@@ -48,6 +52,8 @@ public class JobService {
         final List<DeliveryPackage> deliveryPackages = deliveryPackageRepository
                 .findAllByStatusIn(DeliveryPackage.DeliveryPackageStatus.NEW);
         if (deliveryPackages.size() == 0) {
+            job.setStatus(Job.JobStatus.DONE);
+            jobRepository.saveAndFlush(job);
             return;
         }
         Double currentLat = 52.2;

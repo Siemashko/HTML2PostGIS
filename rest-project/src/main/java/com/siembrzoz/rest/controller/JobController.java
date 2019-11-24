@@ -26,6 +26,11 @@ public class JobController {
                 .collect(Collectors.toList());
     }
 
+    @GetMapping("/{id}")
+    public JobDto getJobById(@PathVariable Long id) {
+        return JobDto.from(jobService.findJobById(id));
+    }
+
     @PostMapping
     public JobDto createJob(@Valid @RequestBody CreateJobRequestCommand createJobRequestCommand) {
         return JobDto.from(jobService.createNewJob(createJobRequestCommand));
